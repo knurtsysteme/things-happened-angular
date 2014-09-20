@@ -44,10 +44,22 @@ grunt default
 <a name="d"/>
 ## usage
 
-Just a small example query yet. See jasmine tests for more examples and visit http://things-happened.org
+Just a small example query yet. See examples and jasmine tests for more examples and visit http://things-happened.org
 
-```js
-// get short movies having a title
-var query = ThingsQuery.select('movies').whose('title').exists().whose('length').isLowerThan(50);
-console.info('http://things-happened.org' + query.url());
+```html
+<!-- add a movie into the database on form submit -->
+<form things-addto="movies liketosee" method="POST">
+  <fieldset>
+    <input type="text" name="title" placeholder="title" /><br />
+    <input type="date" name="date" placeholder="date" /><br />
+    <button type="submit">Add now</button>
+  </fieldset>
+</form>
+```
+
+```html
+<!-- list all movies from database -->
+<ul>
+  <li things-repeat="movie in movies">{{movie.date}} {{movie.title}}</li>
+</ul>
 ```
