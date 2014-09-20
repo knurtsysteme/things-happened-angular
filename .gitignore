@@ -1,0 +1,9 @@
+node_modules
+.tmp
+.sass-cache
+.project
+.settings
+bower_components
+my_*
+**/my_*
+dist/*SNAPSHOT*
