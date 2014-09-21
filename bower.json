@@ -31,10 +31,7 @@
     "angular-mocks": "~1.2.25",
     "angular-scenario": "1.2.25",
     "jasmine-jquery": "~2.0.5",
-    "karma":"~0.2.2"
+    "karma": "~0.2.2"
   },
-  "appPath": "app",
-  "resolutions": {
-    "angular": "1.2.25"
-  }
+  "appPath": "app"
 }

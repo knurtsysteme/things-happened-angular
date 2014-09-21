@@ -405,7 +405,7 @@ ThingsQuery.getCopyForUpdate = function(thing) {
 var ThingsConfig = ThingsConfig || {};
 
 // use this database
-ThingsConfig.serviceurl = ThingsConfig.serviceurl || 'http://localhost:3000';
+ThingsConfig.serviceurl = ThingsConfig.serviceurl || 'http://things-happened.org';
 
 // use this as global secret for every post and get request made.
 ThingsConfig.secret = ThingsConfig.secret || false;

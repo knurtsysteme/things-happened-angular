@@ -18,7 +18,7 @@ var process = function(src, filepath) {
 
 module.exports = {
   thingsHappenedAngular : {
-    src : [ 'bower_components/things-happened-util/dist/things-happened-util.' + global.bower.dependencies['things-happened-util'] + '.js', 'src/main/things-happened.js', 'src/main/things-dao.js', 'src/main/*.js' ],
+    src : [ 'src/main/things-happened.js', 'src/main/things-dao.js', 'src/main/*.js' ],
     dest : 'dist/' + global.pkg.name + '.' + global.pkg.version + '.js'
   },
   options : {

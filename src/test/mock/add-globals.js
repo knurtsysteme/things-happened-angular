@@ -1,5 +1,10 @@
+// the fixture path (used for template testing) differs in case of running tests over grunt or over karma
 var FIXTURES_PATH = typeof gruntRun != 'undefined' ? 'src/test/spec/fixtures/' : '/base/src/test/spec/fixtures/';
-console.info(FIXTURES_PATH);
+
+// read and write things from a local system
+ThingsConfig.serviceurl = 'http://localhost:3000';
+
+// define some test mocks
 var mocks = {};
 mocks = {};
 mocks.diseases = [ {
