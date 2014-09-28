@@ -6,7 +6,7 @@
  * @name thingsHappened.directive:thingsRepeat
  * @description # thingsRepeat
  */
-angular.module('thingsHappened').directive('thingsRepeat', [ '$compile', 'ThingsDao', function($compile, ThingsDao) {
+angular.module('thingsHappened').directive('thingsRepeat', [ '$compile', 'thingsDao', function($compile, thingsDao) {
 
   var handleThingsRepeat = function(scope, element) {
     var originalElement = element.clone();
@@ -18,9 +18,11 @@ angular.module('thingsHappened').directive('thingsRepeat', [ '$compile', 'Things
         var template = originalElement.clone().wrap('<div />').parent().html();
         // kill the entire html of elements parent now!
         element.parent().html(element);
-        // TODO wenn das so bleibt, sollte wenigstens eine warnung ausgegeben
-        // werden.
-        ThingsDao.get(thingsString, scope.thingsCriteria, scope.thingsProjection).success(function(things) {
+        var query = things.query.select(thingsString, {
+          criteria : scope.thingsCriteria,
+          projection : scope.thingsProjection
+        });
+        thingsDao.get(query).success(function(things) {
           scope[thingsString] = things;
           var el = angular.element(template);
           el.attr('ng-repeat', scope.thingsRepeat);

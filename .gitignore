@@ -7,3 +7,5 @@ bower_components
 my_*
 **/my_*
 dist/*SNAPSHOT*
+.grunt
+_SpecRunner.html

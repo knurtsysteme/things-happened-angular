@@ -14,7 +14,7 @@ describe('Directive: thingsRepeat', function() {
 
   beforeEach(inject(function($injector, $rootScope) {
     jasmine.getFixtures().fixturesPath = FIXTURES_PATH;
-    thingsDao = $injector.get('ThingsDao');
+    thingsDao = $injector.get('thingsDao');
     httpBackend = $injector.get('$httpBackend');
     scope = $injector.get('$rootScope');
   }));
@@ -32,7 +32,7 @@ describe('Directive: thingsRepeat', function() {
         loadFixtures('things-repeat-fixture.html');
       }));
       it('it should iterate these (Test 201407251134)', inject(function($compile) {
-        httpBackend.expectGET(thingsDao.serviceurl + '/get/diseases.json').respond(mocks.diseases);
+        httpBackend.expectGET(things.config.serviceurl + '/get/diseases.json').respond(mocks.diseases);
         $compile($('#fixture'))(scope);
         httpBackend.flush();
         scope.$apply();
@@ -55,7 +55,7 @@ describe('Directive: thingsRepeat', function() {
       loadFixtures('things-repeat-pipe-fixture.html');
     }));
     it('it should support piped things', inject(function($compile) {
-      httpBackend.expectGET(thingsDao.serviceurl + '/get/diseases.json').respond(mocks.diseases);
+      httpBackend.expectGET(things.config.serviceurl + '/get/diseases.json').respond(mocks.diseases);
       $compile($('#fixture'))(scope);
       httpBackend.flush();
       scope.$apply();
@@ -79,53 +79,17 @@ describe('Directive: thingsRepeat', function() {
     it('should update the view', inject(function($compile) {
       $compile($('#fixture'))(scope);
       scope.$apply();
-      httpBackend.expectGET(thingsDao.serviceurl + '/get/diseases.json').respond(mocks.diseases);
+      httpBackend.expectGET(things.config.serviceurl + '/get/diseases.json').respond(mocks.diseases);
       scope.myThings = 'diseases';
       httpBackend.flush();
       scope.$apply();
       expect($('#fixture > li:visible').length).toBe(mocks.diseases.length);
 
-      httpBackend.expectGET(thingsDao.serviceurl + '/get/cars.json').respond(mocks.cars);
+      httpBackend.expectGET(things.config.serviceurl + '/get/cars.json').respond(mocks.cars);
       scope.myThings = 'cars';
       httpBackend.flush();
       scope.$apply();
       expect($('#fixture > li:visible').length).toBe(mocks.cars.length);
     }));
-    // TODO not implemented yet
-    // it('should not add things that are not there', inject(function() {
-    // console.info('TODO not implemented yet');
-    // expect('TODO').toBe('TODO');
-    // $compile($('#fixture'))(scope);
-    // scope.$apply();
-    //      
-    // httpBackend.expectGET(thingsDao.serviceurl +
-    // 'get/diseases.json').respond(mocks.diseases);
-    // scope.myThings = 'diseases';
-    // httpBackend.flush();
-    // scope.$apply();
-    // expect($('#fixture > li:visible').length).toBe(mocks.diseases.length);
-    //
-    // httpBackend.expectGET(thingsDao.serviceurl +
-    // 'get/cars.json').respond(mocks.cars);
-    // scope.myThings = 'cars';
-    // httpBackend.flush();
-    // scope.$apply();
-    // expect($('#fixture > li:visible').length).toBe(mocks.cars.length);
-    //
-    // httpBackend.expectGET(thingsDao.serviceurl +
-    // 'get/diseases.json').respond(mocks.diseases);
-    // scope.myThings = 'diseases';
-    // httpBackend.flush();
-    // scope.$apply();
-    // expect($('#fixture > li:visible').length).toBe(mocks.diseases.length);
-    //
-    // httpBackend.expectGET(thingsDao.serviceurl +
-    // 'get/cars.json').respond(mocks.cars);
-    // scope.myThings = 'cars';
-    // httpBackend.flush();
-    // scope.$apply();
-    // expect($('#fixture > li:visible').length).toBe(mocks.cars.length);
-
-    // }));
   });
 });

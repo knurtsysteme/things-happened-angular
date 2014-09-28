@@ -8,7 +8,7 @@ var getVendors = function() {
   result.push('bower_components/angular/angular.js');
   result.push('bower_components/angular-mocks/angular-mocks.js');
   result.push('bower_components/jasmine-jquery/lib/jasmine-jquery.js');
-  result.push('bower_components/things-happened-util/dist/things-happened-util.' + global.bower.dependencies['things-happened-util'] + '.js');
+  result.push('bower_components/things-happened-util/dist/things-happened-util.js');
   return result;
 }
 

@@ -16,7 +16,7 @@ module.exports = function(config) {
     frameworks : [ 'jasmine' ],
 
     // list of files / patterns to load in the browser
-    files : [ 'bower_components/things-happened-util/dist/things-happened-util.0.3.0.min.js', 'bower_components/jasmine/lib/jasmine-core/jasmine.css', 'bower_components/es5-shim/es5-shim.js', 'bower_components/jasmine/lib/jasmine-core/jasmine.js', 'bower_components/jasmine/lib/jasmine-core/jasmine-html.js', 'bower_components/jasmine/lib/jasmine-core/boot.js', 'bower_components/jquery/dist/jquery.min.js', 'bower_components/jasmine-jquery/lib/jasmine-jquery.js', 'bower_components/angular/angular.js', 'bower_components/angular-mocks/angular-mocks.js', 'src/main/things-happened.js', 'src/main/*.js', 'src/test/mock/*.js', 'src/test/helpers/**/*.js', 'src/test/spec/**/*.js', 'src/test/spec/**/fixtures/*.html', 'src/test/_SpecRunner.html' ],
+    files : [ 'bower_components/things-happened-util/dist/things-happened-util.js', 'bower_components/jasmine/lib/jasmine-core/jasmine.css', 'bower_components/es5-shim/es5-shim.js', 'bower_components/jasmine/lib/jasmine-core/jasmine.js', 'bower_components/jasmine/lib/jasmine-core/jasmine-html.js', 'bower_components/jasmine/lib/jasmine-core/boot.js', 'bower_components/jquery/dist/jquery.min.js', 'bower_components/jasmine-jquery/lib/jasmine-jquery.js', 'bower_components/angular/angular.js', 'bower_components/angular-mocks/angular-mocks.js', 'src/main/things-happened.js', 'src/main/*.js', 'src/test/mock/*.js', 'src/test/helpers/**/*.js', 'src/test/spec/*.js', 'src/test/spec/fixtures/*.html', 'src/test/_SpecRunner.html' ],
 
     // list of files / patterns to exclude
     exclude : [],

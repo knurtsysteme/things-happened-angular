@@ -5,7 +5,7 @@
  * @name thingsHappened.directive:thingsCount
  * @description # thingsCount
  */
-angular.module('thingsHappened').directive('thingsCount', [ 'ThingsDao', function(ThingsDao) {
+angular.module('thingsHappened').directive('thingsCount', [ 'thingsDao', function(thingsDao) {
   return {
     scope : {
       'thingsCount' : '=',
@@ -14,17 +14,15 @@ angular.module('thingsHappened').directive('thingsCount', [ 'ThingsDao', functio
     link : function postLink(scope, element) {
       var onChange = function() {
         if (scope.thingsCount) {
-          var http = null;
+          var query = things.query.count(scope.thingsCount);
           if (scope.thingsHappened) {
-            http = ThingsDao.getCountOf(scope.thingsCount, scope.thingsHappened);
-          } else {
-            http = ThingsDao.getCountOf(scope.thingsCount);
+            query.that(scope.thingsHappened);
           }
-          http.success(function(count) {
+          thingsDao.get(query).success(function(count) {
             element.text(count.result);
           });
         } else {
-          ThingsDao.getCountOfThings().success(function(count) {
+          thingsDao.get(things.query.count()).success(function(count) {
             element.text(count._total);
           });
         }

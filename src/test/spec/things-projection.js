@@ -14,7 +14,7 @@ describe('Directive: thingsProjection', function() {
 
   beforeEach(inject(function($injector, $rootScope) {
     jasmine.getFixtures().fixturesPath = FIXTURES_PATH;
-    thingsDao = $injector.get('ThingsDao');
+    thingsDao = $injector.get('thingsDao');
     httpBackend = $injector.get('$httpBackend');
     scope = $injector.get('$rootScope');
   }));
@@ -27,7 +27,7 @@ describe('Directive: thingsProjection', function() {
       var response = [ {
         location : 'Berlin'
       } ];
-      httpBackend.expectGET(thingsDao.serviceurl + '/get/diseases.json?projection={"location":1}').respond(response);
+      httpBackend.expectGET(things.config.serviceurl + '/get/diseases.json?projection={"location":1}').respond(response);
       $compile($('#fixture'))(scope);
       httpBackend.flush();
       scope.$apply();

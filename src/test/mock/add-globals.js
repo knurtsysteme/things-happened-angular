@@ -2,11 +2,10 @@
 var FIXTURES_PATH = typeof gruntRun != 'undefined' ? 'src/test/spec/fixtures/' : '/base/src/test/spec/fixtures/';
 
 // read and write things from a local system
-ThingsConfig.serviceurl = 'http://localhost:3000';
+things.config.serviceurl = 'http://localhost:3000';
 
 // define some test mocks
 var mocks = {};
-mocks = {};
 mocks.diseases = [ {
   symptoms : [ 'cough', 'nausea' ],
   location : 'New York City',

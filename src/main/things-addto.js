@@ -10,7 +10,7 @@
 // gesesetzt werden
 // im wahren leben möchte man dort eigene ng-models setzen udn wenn man das tut,
 // funktioniert's nicht mehr!!!
-angular.module('thingsHappened').directive('thingsAddto', [ '$compile', 'ThingsDao', function($compile, ThingsDao) {
+angular.module('thingsHappened').directive('thingsAddto', [ '$compile', 'thingsDao', function($compile, thingsDao) {
   var getNgSubmitFunction = function(cn, state, thingsDao, tmpModel, successCallback, errorCallback) {
     successCallback = successCallback || function(answerFromThingsHappened) {
       window.alert('Your new document stored: ' + JSON.stringify(answerFromThingsHappened));
@@ -19,7 +19,8 @@ angular.module('thingsHappened').directive('thingsAddto', [ '$compile', 'ThingsD
       window.alert('YES! ... an error occured :(');
     };
     return function() {
-      thingsDao.add(this[tmpModel]).to(cn, state).success(successCallback).error(errorCallback);
+      var query = things.query.add(this[tmpModel]).to(cn, state);
+      thingsDao.add(query).success(successCallback).error(errorCallback);
       return false;
     };
   };
@@ -47,7 +48,7 @@ angular.module('thingsHappened').directive('thingsAddto', [ '$compile', 'ThingsD
             var tmpModel = getTmpModel();
             var tmpFunc = tmpModel + 'Function';
             scope[tmpModel] = {};
-            scope[tmpFunc] = getNgSubmitFunction(cn, state, ThingsDao, tmpModel, successCallback, errorCallback);
+            scope[tmpFunc] = getNgSubmitFunction(cn, state, thingsDao, tmpModel, successCallback, errorCallback);
             var template = element.clone().wrap('<div />').parent().html();
             // set ng-model as attribute of our tmpModel
             template = template.replace(/name\s*=\s*"/g, 'ng-model="' + tmpModel + '.');

@@ -8,13 +8,13 @@ describe('Directive: thingsAddto', function() {
   var element, scope, $httpBackend, thingsDao;
 
   beforeEach(inject(function($injector, $rootScope) {
-    thingsDao = $injector.get('ThingsDao');
+    thingsDao = $injector.get('thingsDao');
     $httpBackend = $injector.get('$httpBackend');
     scope = $rootScope.$new();
   }));
 
   it('should make a ng-submit out of it', inject(function($compile) {
-    $httpBackend.expectGET(thingsDao.serviceurl + '/addto/diseases/occured.json').respond(mocks.diseases);
+    $httpBackend.expectGET(things.config.serviceurl + '/addto/diseases/occured.json').respond(mocks.diseases);
     var html = '<form things-addto="diseases occured"><input type="text" name="location" /></form>';
     element = angular.element('<div>' + html + '</div>');
     element = $compile(element)(scope);
@@ -23,7 +23,7 @@ describe('Directive: thingsAddto', function() {
     expect(element.html()).toContain('ng-submit="things1Function()"');
   }));
   it('should wrap it in an own success feedback', inject(function($compile) {
-    $httpBackend.expectGET(thingsDao.serviceurl + '/addto/diseases/occured.json').respond(mocks.diseases);
+    $httpBackend.expectGET(things.config.serviceurl + '/addto/diseases/occured.json').respond(mocks.diseases);
     var html = '<form things-addto="diseases occured"><input type="text" name="location" /></form>';
     element = angular.element('<div>' + html + '</div>');
     element = $compile(element)(scope);

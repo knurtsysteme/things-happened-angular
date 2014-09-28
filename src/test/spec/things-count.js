@@ -6,7 +6,7 @@ describe('Directive: thingsCount', function() {
 
     beforeEach(inject(function($injector, $rootScope) {
       jasmine.getFixtures().fixturesPath = FIXTURES_PATH;
-      thingsDao = $injector.get('ThingsDao');
+      thingsDao = $injector.get('thingsDao');
       httpBackend = $injector.get('$httpBackend');
       scope = $injector.get('$rootScope');
     }));
@@ -19,7 +19,7 @@ describe('Directive: thingsCount', function() {
         _total : 37,
         _ok : 1
       };
-      httpBackend.expectGET(thingsDao.serviceurl + '/count/things.json').respond(response);
+      httpBackend.expectGET(things.config.serviceurl + '/count/things.json').respond(response);
       $compile($('#fixture'))(scope);
       httpBackend.flush();
       scope.$apply();
@@ -33,7 +33,7 @@ describe('Directive: thingsCount', function() {
         result : 4,
         _ok : 1
       };
-      httpBackend.expectGET(thingsDao.serviceurl + '/count/dogs.json').respond(response);
+      httpBackend.expectGET(things.config.serviceurl + '/count/dogs.json').respond(response);
       $compile($('#fixture'))(scope);
       httpBackend.flush();
       scope.$apply();
@@ -48,7 +48,7 @@ describe('Directive: thingsCount', function() {
         result : 5,
         _ok : 1
       };
-      httpBackend.expectGET(thingsDao.serviceurl + '/count/dogs/runaway.json').respond(response);
+      httpBackend.expectGET(things.config.serviceurl + '/count/dogs/runaway.json').respond(response);
       $compile($('#fixture'))(scope);
       httpBackend.flush();
       scope.$apply();

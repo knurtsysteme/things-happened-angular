@@ -1,6 +1,6 @@
 {
   "name": "things-happened-angularjs",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "main": "./dist/things-happened-angular.js",
   "description": "client-side framework for ease access to things happened",
   "keywords": [
@@ -21,7 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "things-happened-util": "0.3.0",
+    "things-happened-util": "0.4.2",
     "angular": "1.2.25",
     "json3": "~3.3.1",
     "es5-shim": "~3.1.0"
