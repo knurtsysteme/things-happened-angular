@@ -3,7 +3,7 @@
 
 things-happened-angular JavaScript Library v0.3.0
 
-build: Sun Sep 28 2014 20:13:43 GMT+0200 (CEST)
+build: Sun Oct 05 2014 08:07:41 GMT+0200 (CEST)
 
 MIT License
 
@@ -244,3 +244,16 @@ angular.module('thingsHappened').directive('thingsRepeat', [ '$compile', 'things
     }
   };
 } ]);
+
+
+
+/**
+ * @ngdoc directive
+ * @name thingsHappened.directive:thingsCount
+ * @description # thingsCount
+ */
+angular.module('thingsHappened').filter('todate', function() {
+  return function(thing, key) {
+    return thing ? things.date.getDate(thing, key) : null;
+  };
+});

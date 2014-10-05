@@ -21,7 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "things-happened-util": "0.4.2",
+    "things-happened-util": "0.4.3",
     "angular": "1.2.25",
     "json3": "~3.3.1",
     "es5-shim": "~3.1.0"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="things-happened-angular" basedir=".">
 	<target name="build" description="shortcut to grunt">
-		<exec executable="grunt" />
+		<exec executable="grunt" failonerror="true" />
 	</target>
 	<target name="bower install" description="run install for bower">
 		<exec executable="bower" failonerror="true">
@@ -23,4 +23,14 @@
       <arg line="-url http://localhost:8080/base/src/test/_SpecRunner.html" />
     </exec>
 	</target>
+  <target name="github: open" description="open project page in google chrome (new window)">
+    <exec executable="google-chrome">
+      <arg line="-url http://github.com/knurtsysteme/things-happened-angular" />
+    </exec>
+  </target>
+  <target name="github: open /issues" description="open project page in google chrome (new window)">
+    <exec executable="google-chrome">
+      <arg line="-url http://github.com/knurtsysteme/things-happened-angular/issues" />
+    </exec>
+  </target>
 </project>
